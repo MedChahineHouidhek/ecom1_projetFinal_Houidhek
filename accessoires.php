@@ -1,5 +1,5 @@
 <?php
-include "fun/functions.php";
+require_once "functions/functions.php";
 $produits=getProduit();
 ?>
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ $produits=getProduit();
 </head>
 <body>
   <div class="hero">
-      <?php include 'nav.php';?>
+      <?php require_once 'nav.php';?>
       <main>
         <?php foreach($produits as $produit){ ?> 
         <section class="product">

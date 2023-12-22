@@ -1,17 +1,18 @@
 <?php
-include 'fun/functions.php';
-if(isset($_GET['id'])){
-    $id=$_GET['id'];
-    $personne=getPersonneById($id);
-    if(isset($_POST['modifier'])){
-      $role=$_POST['role'];
-      modifierrole($id,$role);
-      header('Location: gestionutilisateur.php');
+require_once 'functions/functions.php';
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $personne = getPersonneById($id);
+    if (isset($_POST['modifier'])) {
+        $role = $_POST['role'];
+        modifierrole($id, $role);
+        header('Location: gestionutilisateur.php');
     }
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,33 +21,35 @@ if(isset($_GET['id'])){
     <link rel="stylesheet" href="ac.css">
     <title>Profil</title>
 </head>
+
 <body>
     <div class="hero">
-        <?php include 'nav.php'; ?>
+        <?php require_once 'nav.php'; ?>
         <div class="form-box register">
-           
+
             <form method="post">
-               <div>
-                  <h2>Modifier</h2>
-               </div>
+                <div>
+                    <h2>Modifier</h2>
+                </div>
                 <div class="input-box">
-                <span class="icon"><ion-icon name="person-outline"></span>
-                    <input type="name" name="nom" required value="<?php echo $personne['nom'];?>">
+                    <span class="icon"><ion-icon name="person-outline"></span>
+                    <input type="name" name="nom" required value="<?php echo $personne['nom']; ?>">
                     <label>Nom</label>
                 </div>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="mail-outline"></span>
-                    <input type="email" name="email" required value="<?php echo $personne['email'];?>">
+                    <input type="email" name="email" required value="<?php echo $personne['email']; ?>">
                     <label>Email</label>
                 </div>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="lock-closed-outline"></span>
-                    <input type="text" name="role" required value="<?php echo $personne['titre'];?>">
+                    <input type="text" name="role" required value="<?php echo $personne['titre']; ?>">
                     <label>Role</label>
                 </div>
                 <button type="submit" name="modifier" class="btn btn-secondary">Modifier</button>
-          </form> 
+            </form>
         </div>
-   </div>    
+    </div>
 </body>
+
 </html>

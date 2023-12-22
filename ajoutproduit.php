@@ -1,5 +1,5 @@
 <?php
-include 'fun/functions.php';
+require_once 'functions/functions.php';
 // include 'uploadimage.php';
 if(isset($_POST['ajouter'])){
     $titre=$_POST['titre'];
